@@ -1,0 +1,21 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t Tomen-coder/lab_8 -f Dockerfile .
+
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "lab8-app"
+  env: "Lab8app-env"
+  bucket_name: "elasticbeanstalk-us-east-2-539708463733"
+  bucket_path: "docker-test"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
