@@ -5,7 +5,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t Tomen-coder/lab_8 -f Dockerfile .
+  - docker build -t tomen-coder/lab_8 -f Dockerfile .
 
 
 deploy:
